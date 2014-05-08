@@ -165,7 +165,11 @@ private
       end
       native.remove
     else
-      native['value'] = value.to_s unless self[:readonly]
+      unless type == 'number'
+        value = value.to_s
+      end
+      
+      native['value'] = value unless self[:readonly]
     end
   end
 
